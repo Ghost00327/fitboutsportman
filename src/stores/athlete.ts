@@ -1,19 +1,20 @@
 import {ref} from 'vue'
-import type {Ref} from 'vue'
 import { defineStore } from 'pinia'
 import type {Athlete} from "@/model";
 import {AthleteProvider} from "@/providers/athleteProvider";
 
 
 export const useAthleteStore = defineStore('athlete', () => {
-    const athlete = ref<Athlete | null>(null)
+    const athlete = ref<Athlete>({
+        city: "", firstname: "", id: 0, lastname: "", profile_photo_url: "", team: {id: 0, emoji: "", name: "", active: false}, email: ""
+    })
 
     function exists() {
-        return athlete.value != null
+        return athlete.value.id != 0
     }
 
-    async function fetch() {
-        if (athlete.value == null) {
+    async function fetch(): Promise<Athlete> {
+        if (!exists()) {
             athlete.value = (await new AthleteProvider().get()).data
         }
 

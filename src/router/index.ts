@@ -10,11 +10,11 @@ const router = createRouter({
       path: '/',
       name: 'leaderboard',
       component: Leaderboard,
-      beforeEnter: (to, from) => {
-        const athlete = useAthleteStore().fetch()
+      beforeEnter: async (to, from) => {
+        const athlete = await useAthleteStore().fetch()
 
-        if (athlete != null && !useAthleteStore().exists()) {
-          router.push({name: "login"})
+        if (athlete.id == 0) {
+          await router.push({name: "login"})
         }
       }
     },

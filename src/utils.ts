@@ -1,7 +1,6 @@
 import type {Athlete, Team} from "@/model"
 
-export function fullAthleteName(athlete: Athlete | null): string {
-    if (athlete === null) return ""
+export function fullAthleteName(athlete: Athlete): string {
     return (athlete?.firstname ?? "").concat(athlete?.lastname ?? "")
 }
 

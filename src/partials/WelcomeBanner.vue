@@ -46,7 +46,7 @@
     <!-- Content -->
     <div class="relative">
       <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Good afternoon, {{ fullAthleteName(athlete) }}. 👋</h1>
-      <p>Here is what’s happening with your projects today:</p>
+      <p>Here is what’s going on. Keep rocking.</p>
     </div>
 
   </div>

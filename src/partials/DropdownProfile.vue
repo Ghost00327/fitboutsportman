@@ -50,9 +50,8 @@ import {onMounted, onUnmounted, ref} from "vue";
 import {useAthleteStore} from "@/stores/athlete";
 import {storeToRefs} from "pinia";
 import {fullAthleteName} from "@/utils";
-import type {Athlete} from "@/model";
 
-const props = defineProps<{align: string, athlete: Athlete}>()
+const props = defineProps<{align: string}>()
 
 const athleteStore = useAthleteStore();
 const {athlete} = storeToRefs(athleteStore)

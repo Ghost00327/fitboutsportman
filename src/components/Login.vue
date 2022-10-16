@@ -33,10 +33,8 @@
 
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
-import {api} from "@/api";
-import {Leaderboard} from "@/providers/leaderboard";
-import router from "@/router";
 import type {Team} from "@/model";
+import {Teams} from "@/providers/teams";
 
 const teams = ref([] as Team[])
 const selectedTeam = ref<null | Team>()
@@ -48,13 +46,7 @@ function login(event: Event) {
 }
 
 onMounted(async () => {
-  new Leaderboard().get().then(resp => {
-    if (resp.status == 200) {
-      router.push({name: "leaderboard"})
-    }
-  })
-
-  api.get("/api/public/teams").then(resp => {
+  new Teams().get().then(resp => {
     teams.value = resp.data
   })
 })
