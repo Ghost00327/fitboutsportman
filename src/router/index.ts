@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Leaderboard from '../views/Leaderboard.vue'
 import LoginView from '../views/LoginView.vue'
+import TeamsView from '../views/Teams.vue'
 import {useAthleteStore} from "@/stores/athlete";
 
 const router = createRouter({
@@ -17,6 +18,11 @@ const router = createRouter({
           await router.push({name: "login"})
         }
       }
+    },
+    {
+      path: '/teams',
+      name: "teams",
+      component: TeamsView
     },
     {
       path: '/login',

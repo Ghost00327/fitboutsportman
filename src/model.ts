@@ -30,3 +30,15 @@ export interface Athlete {
     profile_photo_url: string,
     team: Team
 }
+
+export interface AthleteSummary {
+    lastname: string,
+    firstname: string,
+    profile_photo_url: string,
+    points: number
+}
+
+export interface TeamSummary {
+    team: Team,
+    athletes: AthleteSummary[]
+}
