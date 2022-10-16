@@ -1,11 +1,12 @@
-import { ref} from 'vue'
+import {ref} from 'vue'
+import type {Ref} from 'vue'
 import { defineStore } from 'pinia'
 import type {Athlete} from "@/model";
 import {AthleteProvider} from "@/providers/athleteProvider";
 
 
 export const useAthleteStore = defineStore('athlete', () => {
-    const athlete = ref<Athlete>()
+    const athlete = ref<Athlete | null>(null)
 
     function exists() {
         return athlete.value != null

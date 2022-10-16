@@ -4,7 +4,6 @@
       ref="trigger"
       class="inline-flex justify-center items-center group"
       aria-haspopup="true"
-      @click.prevent="dropdownOpen = !dropdownOpen"
       :aria-expanded="dropdownOpen"
     >
       <img class="w-8 h-8 rounded-full" :src="athlete.profile_photo_url" width="32" height="32" alt="User" />
@@ -51,27 +50,21 @@ import {onMounted, onUnmounted, ref} from "vue";
 import {useAthleteStore} from "@/stores/athlete";
 import {storeToRefs} from "pinia";
 import {fullAthleteName} from "@/utils";
+import type {Athlete} from "@/model";
 
-const props = defineProps<{align: string}>()
+const props = defineProps<{align: string, athlete: Athlete}>()
 
 const athleteStore = useAthleteStore();
 const {athlete} = storeToRefs(athleteStore)
 
 const dropdownOpen = ref(false)
-const trigger = ref(null)
+const trigger = ref<HTMLButtonElement | null>(null)
 const dropdown = ref(null)
 
-// close on click outside
-const clickHandler = ({ target }) => {
-  if (!dropdownOpen.value || dropdown.value.contains(target) || trigger.value.contains(target)) return
-  dropdownOpen.value = false
-}
-
 onMounted(() => {
-  document.addEventListener('click', clickHandler)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click', clickHandler)
+  if (!trigger.value) return;
+  trigger.value.addEventListener('click', ev => {
+    dropdownOpen.value = !dropdownOpen.value
+  })
 })
 </script>

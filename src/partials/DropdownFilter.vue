@@ -80,6 +80,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const props = defineProps<{align: string}>()
+
 const dropdownOpen = ref(false)
-const align = ref(false)
 </script>
