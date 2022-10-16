@@ -1,0 +1,2 @@
+[context.production.environment]
+    VITE_API_URL = "https://api-dev.fitbout.io"
