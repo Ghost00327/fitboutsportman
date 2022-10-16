@@ -6,4 +6,8 @@ export class AthleteProvider {
     async get(): Promise<AxiosResponse<Athlete>> {
         return (await api.get<Athlete>( "/api/private/profile"))
     }
+
+    async getAll(): Promise<AxiosResponse<Athlete[]>> {
+        return (await api.get<Athlete[]>( "/api/private/user"))
+    }
 }

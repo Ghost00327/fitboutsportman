@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Leaderboard from '../views/Leaderboard.vue'
 import LoginView from '../views/LoginView.vue'
 import TeamsView from '../views/Teams.vue'
+import UsersView from '../views/UsersView.vue'
 import {useAthleteStore} from "@/stores/athlete";
 
 const router = createRouter({
@@ -23,6 +24,11 @@ const router = createRouter({
       path: '/teams',
       name: "teams",
       component: TeamsView
+    },
+    {
+      path: '/users',
+      name: "users",
+      component: UsersView
     },
     {
       path: '/login',

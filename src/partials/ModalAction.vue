@@ -31,7 +31,7 @@
               </svg>
             </button>
             <!-- Modal header -->
-            <div class="px-5 py-3 border-b border-gray-200">
+            <div v-if="header !== ''" class="px-5 py-3 border-b border-gray-200">
               <div class="flex justify-between items-center">
                 <div class="font-semibold text-gray-800">{{ header }}</div>
               </div>
