@@ -3,6 +3,9 @@ import Leaderboard from '../views/Leaderboard.vue'
 import LoginView from '../views/LoginView.vue'
 import TeamsView from '../views/Teams.vue'
 import UsersView from '../views/UsersView.vue'
+import SettingsView from '../views/SettingsView.vue'
+import ChallengeSettings from '@/components/settings/ChallengeSettings.vue'
+import ActivityTypes from '@/components/settings/ActivityTypes.vue'
 import {useAthleteStore} from "@/stores/athlete";
 
 const router = createRouter({
@@ -29,6 +32,22 @@ const router = createRouter({
       path: '/users',
       name: "users",
       component: UsersView
+    },
+    {
+      path: '/settings',
+      name: "settings",
+      component: SettingsView,
+      children: [
+        {
+          path: '',
+          name: 'challenge-settings',
+          component: ChallengeSettings
+        },
+        {
+          path: 'activity-types',
+          component: ActivityTypes
+        }
+      ]
     },
     {
       path: '/login',

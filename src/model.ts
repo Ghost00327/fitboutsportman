@@ -42,3 +42,20 @@ export interface TeamSummary {
     team: Team,
     athletes: AthleteSummary[]
 }
+
+export interface ActivityType {
+    id: number,
+    strava_name: string,
+    readable_name: string,
+    formula: string,
+    points_per_minute: string,
+    points_per_km: string,
+    points_per_100calories: string,
+}
+
+export interface Settings {
+    start_date: string,
+    end_date: string,
+    activity_types: ActivityType[],
+    badges: Badge[]
+}
