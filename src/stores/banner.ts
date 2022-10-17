@@ -10,7 +10,7 @@ export const useBannerStore = defineStore('banners', () => {
     const banners = ref<Banner[]>([])
 
     function addBanner(banner: Banner) {
-        banners.value = [banner, ...banners.value].slice(0, 5)
+        banners.value = [banner, ...banners.value].slice(0, 2)
     }
 
     function removeBanner(msg: string) {

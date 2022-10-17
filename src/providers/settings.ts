@@ -7,6 +7,10 @@ export class SettingsProvider {
         return (await api.get<Settings>( "/api/private/settings"))
     }
 
+    async update(settings: Settings): Promise<AxiosResponse<Settings>> {
+        return (await api.put<Settings>( `/api/private/settings/${settings.id}`, settings))
+    }
+
     async toggle(activityType: ActivityType): Promise<AxiosResponse<any>> {
         return (await api.post( `/api/private/settings/toggle-activity-type/${activityType.id}`))
     }
