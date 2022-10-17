@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import Leaderboard from '../views/Leaderboard.vue'
 import LoginView from '../views/LoginView.vue'
 import TeamsView from '../views/Teams.vue'
@@ -15,13 +15,6 @@ const router = createRouter({
       path: '/',
       name: 'leaderboard',
       component: Leaderboard,
-      beforeEnter: async (to, from) => {
-        const athlete = await useAthleteStore().fetch()
-
-        if (athlete.id == 0) {
-          await router.push({name: "login"})
-        }
-      }
     },
     {
       path: '/teams',
@@ -52,9 +45,18 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: LoginView,
     },
   ]
+})
+
+router.beforeEach(async (to, from, next) => {
+  const athlete = await useAthleteStore().fetch()
+
+  if (to.name === 'login' && athlete.id != 0) next({name: 'leaderboard'})
+
+  if (to.name !== 'login' && athlete.id == 0) next({ name: 'login' })
+  else next()
 })
 
 export default router

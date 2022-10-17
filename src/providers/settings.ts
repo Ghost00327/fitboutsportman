@@ -12,6 +12,6 @@ export class SettingsProvider {
     }
 
     async toggle(activityType: ActivityType): Promise<AxiosResponse<any>> {
-        return (await api.post( `/api/private/settings/toggle-activity-type/${activityType.id}`))
+        return (await api.post( `/api/private/settings/activity-types/toggle/${activityType.id}`))
     }
 }
