@@ -8,7 +8,10 @@
         </div>
         <div>
           <label class="block text-sm font-medium mb-1" for="emoji">Emoji <span class="text-red-500">*</span></label>
-          <input v-model="team.emoji" id="emoji" class="form-input w-full px-2 py-1" type="email" required />
+          <button v-on:click="emojiPickerOpen = true">
+            {{ team.emoji || "🔍" }}
+          </button>
+          <FloatingEmojiPicker id="teamEmojiPicker" :open="emojiPickerOpen" @select="emojiSelected"/>
         </div>
         <div>
           <label class="block text-sm font-medium mb-1" for="active">Active <span class="text-red-500">*</span></label>
@@ -28,11 +31,22 @@
   </ModalAction>
 </template>
 
-
 <script setup lang="ts">
 import ModalAction from "@/partials/ModalAction.vue";
 import type {Team} from "@/model";
+import {onMounted, ref} from "vue";
+import FloatingEmojiPicker from "@/partials/FloatingEmojiPicker.vue";
 
 const emit = defineEmits(['submit', 'close', 'delete'])
 const props = defineProps<{team: Team, modalOpen: boolean}>()
+const emojiPickerOpen = ref(false)
+
+function emojiSelected(emoji: any) {
+  props.team.emoji = emoji.native
+  emojiPickerOpen.value = false
+}
+
+onMounted(() => {
+
+})
 </script>

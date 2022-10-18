@@ -1,7 +1,6 @@
 <template>
   <button
       @click.stop="$emit('clicked')"
-      aria-controls="feedback-modal"
       :class="clazz"
       :disabled="!active"
       class="btn bg-indigo-500 hover:bg-indigo-600 text-white disabled:opacity-25 ">
