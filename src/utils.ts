@@ -1,6 +1,6 @@
-import type {Athlete, Team} from "@/model"
+import type {User, Team} from "@/model"
 
-export function fullAthleteName(athlete: Athlete): string {
+export function fullAthleteName(athlete: User): string {
     return (athlete?.firstname ?? "").concat(athlete?.lastname ?? "")
 }
 

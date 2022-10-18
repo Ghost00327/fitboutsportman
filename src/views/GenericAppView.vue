@@ -47,7 +47,7 @@ const { banners } = storeToRefs(bannerStore)
 
 interface Props {
   pageHeadingTitle: string,
-  grid: boolean
+  grid?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

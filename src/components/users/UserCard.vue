@@ -28,8 +28,8 @@
 
 
 <script setup lang="ts">
-import type {Athlete} from "@/model";
+import type {User} from "@/model";
 import {fullAthleteName} from "@/utils";
 
-const props = defineProps<{user: Athlete}>()
+const props = defineProps<{user: User}>()
 </script>

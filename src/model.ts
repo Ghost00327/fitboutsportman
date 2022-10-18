@@ -1,5 +1,5 @@
 export interface LeaderboardRow {
-    athlete: Athlete
+    user: User
     activities_count: Number,
     badges: Badge[],
     calories_burned: Number,
@@ -23,7 +23,7 @@ export interface Team {
     emoji: string
 }
 
-export interface Athlete {
+export interface User {
     id: Number,
     email: string,
     city: string,
@@ -33,7 +33,7 @@ export interface Athlete {
     team: Team
 }
 
-export interface AthleteSummary {
+export interface UserSummary {
     lastname: string,
     firstname: string,
     profile_photo_url: string,
@@ -42,7 +42,7 @@ export interface AthleteSummary {
 
 export interface TeamSummary {
     team: Team,
-    athletes: AthleteSummary[]
+    users: UserSummary[]
 }
 
 export interface ActivityType {

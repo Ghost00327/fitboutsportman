@@ -10,13 +10,13 @@
             {{ data.team.name }}
           </div>
           <div class="flex shrink-0 -space-x-3 -ml-px">
-            <img v-for="athlete in data.athletes.slice(0, 3)" :src="athlete.profile_photo_url" class="rounded-full border-2 border-white box-content" width="28" height="28" alt="User 01" />
+            <img v-for="athlete in data.users.slice(0, 3)" :src="athlete.profile_photo_url" class="rounded-full border-2 border-white box-content" width="28" height="28" alt="User 01" />
           </div>
         </div>
       </header>
       <div class="grow mt-2">
         <table class="table-auto w-full">
-          <tr v-for="athlete in data.athletes">
+          <tr v-for="athlete in data.users">
             <th>
               <img class="rounded-full border-2 border-white box-content" :src="athlete.profile_photo_url" width="28" height="28" alt="User 03" />
             </th>

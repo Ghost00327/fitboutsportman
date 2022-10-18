@@ -6,9 +6,9 @@
 import UserCard from '@/components/users/UserCard.vue'
 import {AthleteProvider} from "@/providers/athleteProvider";
 import {onMounted, ref} from "vue";
-import type {Athlete} from "@/model";
+import type {User} from "@/model";
 
-const users = ref<Athlete[]>([])
+const users = ref<User[]>([])
 interface Props {
   athleteProvider?: AthleteProvider
 }
