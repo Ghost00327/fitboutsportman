@@ -3,14 +3,14 @@
     <td class="p-2 whitespace-nowrap">
       <div class="flex items-center">
         <a class="block" href="#0">
-          <img class="rounded-full border-2 border-white box-content" :src="data.athlete.profile_photo_url" width="28" height="28" alt="User 01" />
+          <img class="rounded-full border-2 border-white box-content" :src="data.user.profile_photo_url" width="28" height="28" alt="User 01" />
         </a>
-        <div class="pl-3 font-medium text-gray-800">{{ fullAthleteName(data.athlete) }}</div>
+        <div class="pl-3 font-medium text-gray-800">{{ fullAthleteName(data.user) }}</div>
       </div>
     </td>
     <td class="p-2 whitespace-nowrap">
       <div class="flex items-center">
-        <div class="font-medium text-gray-800">{{ fullTeamName(data.athlete.team) }}</div>
+        <div class="font-medium text-gray-800">{{ fullTeamName(data.user.team) }}</div>
       </div>
     </td>
     <td class="p-2 whitespace-nowrap">

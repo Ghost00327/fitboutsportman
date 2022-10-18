@@ -14,7 +14,7 @@ export const useTeamsStore = defineStore('teams', () => {
 
     function add(team: Team) {
         teams.value = teams.value.concat(team)
-        summary.value = [...summary.value].concat({athletes: [], team: team})
+        summary.value = [...summary.value].concat({users: [], team: team})
     }
 
     function deleteTeam(team: Team) {
