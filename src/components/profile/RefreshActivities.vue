@@ -4,19 +4,19 @@
 
 
 <script setup lang="ts">
-import {ActivityProvider} from "@/providers/activityProvider";
 import {useAthleteStore} from "@/stores/athlete";
+import {AthleteProvider} from "@/providers/athleteProvider";
 
 interface Props {
-  activityProvider?: ActivityProvider,
+  athleteProvider?: AthleteProvider,
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  activityProvider: () => new ActivityProvider(),
+  athleteProvider: () => new AthleteProvider(),
 })
 
 async function click() {
   const athlete = await useAthleteStore().fetch();
-  props.activityProvider.refreshActivities(athlete.id).then()
+  props.athleteProvider.refreshActivities(athlete.id).then()
 }
 </script>

@@ -10,4 +10,8 @@ export class AthleteProvider {
     async getAll(): Promise<AxiosResponse<User[]>> {
         return (await api.get<User[]>( "/api/private/users"))
     }
+
+    async refreshActivities(id: Number): Promise<AxiosResponse<any>> {
+        return (await api.post<User>(`/api/private/users/${id}/refresh-activities`))
+    }
 }
