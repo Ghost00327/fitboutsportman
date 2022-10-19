@@ -8,7 +8,7 @@
     <div class="flex items-center ml-4">
       <div class="text-sm text-gray-400 italic mr-2" v-text="data.active ? 'On' : 'Off'"></div>
       <div class="form-switch">
-        <input v-model="data.active" v-on:change="toggle" :checked="data.active" type="checkbox" :id="data.readable_name" class="sr-only" />
+        <input v-model="data.active" v-on:change="toggle" type="checkbox" :id="data.readable_name" class="sr-only" />
         <label class="bg-gray-400" :for="data.readable_name">
           <span class="bg-white shadow-sm" aria-hidden="true"></span>
           <span class="sr-only">Enable smart sync</span>
