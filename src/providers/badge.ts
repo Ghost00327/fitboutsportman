@@ -4,18 +4,22 @@ import type {AxiosResponse} from "axios";
 
 export class BadgeProvider {
     async getAll(): Promise<AxiosResponse<Badge[]>> {
-        return (await api.get<Badge[]>( "/api/private/badge"))
+        return (await api.get<Badge[]>( "/api/private/badges"))
     }
 
     async delete(badge: Badge): Promise<AxiosResponse<any>> {
-        return (await api.delete( `/api/private/badge/${badge.id}`))
+        return (await api.delete( `/api/private/badges/${badge.id}`))
     }
 
     async update(badge: Badge): Promise<AxiosResponse<Badge>> {
-        return (await api.put( `/api/private/badge/${badge.id}`, badge))
+        return (await api.put( `/api/private/badges/${badge.id}`, {
+            badge: badge
+        }))
     }
 
     async create(badge: Badge): Promise<AxiosResponse<Badge>> {
-        return (await api.post( `/api/private/badge`, badge))
+        return (await api.post( `/api/private/badges`, {
+            badge: badge
+        }))
     }
 }

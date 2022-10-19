@@ -54,15 +54,12 @@ router.beforeEach(async (to, from, next) => {
   const athlete = await useAthleteStore().fetch()
 
   if (to.name === 'login' && athlete.id > 0) {
-    console.log("dupa")
     next({name: 'leaderboard'})
   }
 
   if (to.name !== 'login' && athlete.id == 0) {
-    console.log("dupa1")
     next({ name: 'login' })
   } else {
-    console.log("dupa2")
     next()
   }
 })

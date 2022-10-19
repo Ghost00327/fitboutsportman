@@ -47,6 +47,7 @@ export interface TeamSummary {
 
 export interface ActivityType {
     id: number,
+    active: boolean
     strava_name: string,
     readable_name: string,
     formula: string,

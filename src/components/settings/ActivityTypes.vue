@@ -12,9 +12,8 @@
         </h3>
         <ul>
           <ActivityTypeComp
-              v-for="activityType in allActivityTypes"
+              v-for="activityType in activityTypes"
               :data="activityType"
-              :checked-prop="checkedActivityTypes.find(value => value.id === activityType.id) !== undefined"
           />
         </ul>
       </section>
@@ -27,23 +26,18 @@ import {onMounted, ref} from "vue";
 import type {ActivityType} from "@/model";
 import ActivityTypeComp from "@/partials/ActivityType.vue"
 import {ActivityTypes} from "@/providers/activityTypes";
-import {SettingsProvider} from "@/providers/settings";
 
-const allActivityTypes = ref<ActivityType[]>([])
-const checkedActivityTypes = ref<ActivityType[]>([])
+const activityTypes = ref<ActivityType[]>([])
 
 interface Props {
   activityTypesProvider?: ActivityTypes,
-  settingsProvider?: SettingsProvider,
 }
 
 const props = withDefaults(defineProps<Props>(), {
   activityTypesProvider: () => new ActivityTypes(),
-  settingsProvider: () => new SettingsProvider()
 })
 
 onMounted(async () => {
-  checkedActivityTypes.value = (await props.settingsProvider.get()).data.activity_types
-  allActivityTypes.value = (await props.activityTypesProvider.get()).data
+  activityTypes.value = (await props.activityTypesProvider.get()).data.sort((n1,n2) => n1.id - n2.id);
 })
 </script>

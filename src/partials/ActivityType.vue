@@ -6,10 +6,10 @@
     </div>
     <!-- Right -->
     <div class="flex items-center ml-4">
-      <div class="text-sm text-gray-400 italic mr-2" v-text="checked ? 'On' : 'Off'"></div>
+      <div class="text-sm text-gray-400 italic mr-2" v-text="data.active ? 'On' : 'Off'"></div>
       <div class="form-switch">
-        <input @click="toggle" :checked="checked" type="checkbox" :id="data.strava_name" class="sr-only" />
-        <label class="bg-gray-400" :for="data.strava_name">
+        <input v-model="data.active" v-on:change="toggle" :checked="data.active" type="checkbox" :id="data.readable_name" class="sr-only" />
+        <label class="bg-gray-400" :for="data.readable_name">
           <span class="bg-white shadow-sm" aria-hidden="true"></span>
           <span class="sr-only">Enable smart sync</span>
         </label>
@@ -24,28 +24,26 @@ import type {ActivityType} from "@/model";
 import {SettingsProvider} from "@/providers/settings";
 import {useBannerStore} from "@/stores/banner";
 import {ref} from "vue";
+import {ActivityTypes} from "@/providers/activityTypes";
 
 const bannerStore = useBannerStore()
 const { addBanner } = bannerStore
 
 interface Props {
   data: ActivityType,
-  checkedProp: boolean,
-  settingsProvider?: SettingsProvider,
+  activityTypesProvider?: ActivityTypes,
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  settingsProvider: () => new SettingsProvider()
+  activityTypesProvider: () => new ActivityTypes()
 })
 
-const checked = ref<boolean>(props.checkedProp)
-
 function toggle() {
-  checked.value = !checked.value
-  props.settingsProvider.toggle(props.data)
+  console.log("DUPA")
+  props.activityTypesProvider.update(props.data)
   addBanner({
-    type: checked.value ? "success" : "info",
-    msg: `Activity type ${checked.value ? "enabled" : "disabled"}`
+    type: props.data.active ? "success" : "info",
+    msg: `Activity type ${props.data.readable_name} ${props.data.active ? "enabled" : "disabled"}`
   })
 }
 </script>
