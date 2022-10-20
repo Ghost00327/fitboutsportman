@@ -5,10 +5,10 @@
 
     <!-- Panel body -->
     <div class="p-6">
-      <h2 class="text-2xl text-slate-800 font-bold mb-5">Connected Apps</h2>
+      <h2 class="text-2xl text-gray-800 font-bold mb-5">Connected Apps</h2>
 
       <!-- Connected Apps cards -->
-      <section class="pb-6 border-b border-slate-200">
+      <section class="pb-6 border-b border-blue-200">
         <div class="grid grid-cols-12 gap-6">
           <AppCard name="Google Fit" :active=true @details="integrationModalOpen = true">
             <template v-slot:img>

@@ -2,11 +2,11 @@
   <ModalAction id="integration-modal" :modalOpen="modalOpen" @close-modal="emit('close')">
     <!-- Modal header -->
     <div class="mb-5 text-center">
-      <div class="text-lg font-semibold text-slate-800">Connect Mosaic with your Cruip account</div>
+      <div class="text-lg font-semibold text-blue-800">Connect Mosaic with your Cruip account</div>
     </div>
     <!-- Modal content -->
     <div class="text-sm mb-5">
-      <div class="font-medium text-slate-800 mb-3">Mosaic would like to:</div>
+      <div class="font-medium text-blue-800 mb-3">Mosaic would like to:</div>
       <ul class="space-y-2 mb-5">
         <li class="flex items-center">
           <svg class="w-3 h-3 shrink-0 fill-current text-emerald-500 mr-2" viewBox="0 0 12 12">
@@ -33,11 +33,11 @@
           <div>Suspendisse faucibus interdum</div>
         </li>
       </ul>
-      <div class="text-xs text-slate-500">By clicking on Allow access, you authorize Mosaic to use your information in accordance with its <a class="text-indigo-500 hover:text-indigo-600" href="#0">Privacy Policy</a>. You can stop it at any time on the integrations page of your Mosaic account.</div>
+      <div class="text-xs text-blue-500">By clicking on Allow access, you authorize Mosaic to use your information in accordance with its <a class="text-indigo-500 hover:text-indigo-600" href="#0">Privacy Policy</a>. You can stop it at any time on the integrations page of your Mosaic account.</div>
     </div>
     <!-- Modal footer -->
     <div class="flex flex-wrap justify-end space-x-2">
-      <button class="btn-sm border-slate-200 hover:border-slate-300 text-slate-600" @click.stop="emit('close')">Cancel</button>
+      <button class="btn-sm border-blue-200 hover:border-blue-300 text-blue-600" @click.stop="emit('close')">Cancel</button>
     </div>
   </ModalAction>
 </template>

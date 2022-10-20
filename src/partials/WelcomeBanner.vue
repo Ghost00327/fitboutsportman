@@ -45,7 +45,7 @@
 
     <!-- Content -->
     <div class="relative">
-      <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Hi {{ fullAthleteName(user) }} 👋</h1>
+      <h1 class="text-2xl md:text-3xl text-blue-800 font-bold mb-1">Hi {{ fullAthleteName(user) }} 👋</h1>
       <p>Here is what’s going on. Keep rocking.</p>
     </div>
 

@@ -2,7 +2,7 @@
   <div class="relative inline-flex">
     <button
       ref="trigger"
-      class="btn bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600"
+      class="btn bg-white border-blue-200 hover:border-blue-300 text-blue-500 hover:text-blue-600"
       aria-haspopup="true"
       @click.prevent="dropdownOpen = !dropdownOpen"
       :aria-expanded="dropdownOpen"
@@ -14,15 +14,15 @@
     </button>
     <transition
       enter-active-class="transition ease-out duration-200 transform"
-      enter-from-class="opacity-0 -translate-y-2"
-      enter-to-class="opacity-100 translate-y-0"
+      enter-from-class="opacity-0 -tranblue-y-2"
+      enter-to-class="opacity-100 tranblue-y-0"
       leave-active-class="transition ease-out duration-200"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div v-show="dropdownOpen" class="origin-top-right z-10 absolute top-full min-w-56 bg-white border border-slate-200 pt-1.5 rounded shadow-lg overflow-hidden mt-1" :class="align === 'right' ? 'right-0' : 'left-0'">
+      <div v-show="dropdownOpen" class="origin-top-right z-10 absolute top-full min-w-56 bg-white border border-blue-200 pt-1.5 rounded shadow-lg overflow-hidden mt-1" :class="align === 'right' ? 'right-0' : 'left-0'">
         <div ref="dropdown">
-          <div class="text-xs font-semibold text-slate-400 uppercase pt-1.5 pb-2 px-4">Filters</div>
+          <div class="text-xs font-semibold text-blue-400 uppercase pt-1.5 pb-2 px-4">Filters</div>
           <ul class="mb-4">
             <li class="py-1 px-3">
               <label class="flex items-center">
@@ -61,10 +61,10 @@
               </label>
             </li>
           </ul>
-          <div class="py-2 px-3 border-t border-slate-200 bg-slate-50">
+          <div class="py-2 px-3 border-t border-blue-200 bg-blue-50">
             <ul class="flex items-center justify-between">
               <li>
-                <button class="btn-xs bg-white border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-600">Clear</button>
+                <button class="btn-xs bg-white border-blue-200 hover:border-blue-300 text-blue-500 hover:text-blue-600">Clear</button>
               </li>
               <li>
                 <button class="btn-xs bg-indigo-500 hover:bg-indigo-600 text-white" @click="dropdownOpen = false" @focusout="dropdownOpen = false">Apply</button>

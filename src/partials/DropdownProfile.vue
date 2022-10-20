@@ -8,24 +8,24 @@
     >
       <img class="w-8 h-8 rounded-full" :src="user.profile_photo_url" width="32" height="32" alt="User" />
       <div class="flex items-center truncate">
-        <span class="truncate ml-2 text-sm font-medium group-hover:text-slate-800">{{ fullAthleteName(user) }}</span>
-        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400" viewBox="0 0 12 12">
+        <span class="truncate ml-2 text-sm font-medium group-hover:text-blue-800">{{ fullAthleteName(user) }}</span>
+        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-blue-400" viewBox="0 0 12 12">
           <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
         </svg>
       </div>
     </button>
     <transition
       enter-active-class="transition ease-out duration-200 transform"
-      enter-from-class="opacity-0 -translate-y-2"
-      enter-to-class="opacity-100 translate-y-0"
+      enter-from-class="opacity-0 -tranblue-y-2"
+      enter-to-class="opacity-100 tranblue-y-0"
       leave-active-class="transition ease-out duration-200"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div v-show="dropdownOpen" class="origin-top-right z-10 absolute top-full min-w-44 bg-white border border-slate-200 py-1.5 rounded shadow-lg overflow-hidden mt-1" :class="align === 'right' ? 'right-0' : 'left-0'">
-        <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200">
-          <div class="font-medium text-slate-800">{{ fullAthleteName(user) }}</div>
-          <div class="text-xs text-slate-500 italic">Administrator</div>
+      <div v-show="dropdownOpen" class="origin-top-right z-10 absolute top-full min-w-44 bg-white border border-blue-200 py-1.5 rounded shadow-lg overflow-hidden mt-1" :class="align === 'right' ? 'right-0' : 'left-0'">
+        <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-blue-200">
+          <div class="font-medium text-blue-800">{{ fullAthleteName(user) }}</div>
+          <div class="text-xs text-blue-500 italic">Administrator</div>
         </div>
         <ul
           ref="dropdown"
