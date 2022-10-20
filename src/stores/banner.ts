@@ -4,13 +4,14 @@ import { defineStore } from 'pinia'
 export interface Banner {
     type: string
     msg: string
+    title?: string
 }
 
 export const useBannerStore = defineStore('banners', () => {
     const banners = ref<Banner[]>([])
 
     function addBanner(banner: Banner) {
-        banners.value = [banner, ...banners.value].slice(0, 2)
+        banners.value = [banner]
     }
 
     function removeBanner(msg: string) {

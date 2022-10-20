@@ -10,8 +10,8 @@
 
       <main>
 
-        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl absolute">
-          <Banner2 v-for="banner in banners" :banner="banner"/>
+        <div class="p-2 px-4 sm:px-6 lg:px-8 py-2 w-full max-w-9xl absolute">
+            <Banner2 v-for="banner in banners" :banner="banner"/>
         </div>
 
         <div class="px-4 sm:px-6 lg:px-8 py-10 w-full max-w-9xl mx-auto">
@@ -37,10 +37,11 @@
 import PageHeading from "@/partials/PageHeading.vue";
 import Sidebar from "@/partials/Sidebar.vue";
 import Header from "@/partials/Header.vue";
-import Banner2 from "@/partials/Banner2.vue";
+import Banner2 from "@/partials/Notification.vue";
 import {ref} from "vue";
 import {storeToRefs} from "pinia";
 import {useBannerStore} from "@/stores/banner";
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
 const bannerStore = useBannerStore()
 const { banners } = storeToRefs(bannerStore)

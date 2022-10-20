@@ -33,8 +33,8 @@
         <router-link to="/settings/activity-types" custom v-slot="{ href, navigate, isExactActive }">
           <li class="mr-0.5 md:mr-0 md:mb-0.5">
             <a class="flex items-center px-2.5 py-2 rounded whitespace-nowrap" :class="isExactActive && 'bg-indigo-50'" :href="href" @click="navigate">
-              <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 mr-2" :class="isExactActive && 'text-indigo-400'" viewBox="0 0 16 16">
-                <path d="M3.414 2L9 7.586V16H7V8.414l-5-5V6H0V1a1 1 0 011-1h5v2H3.414zM15 0a1 1 0 011 1v5h-2V3.414l-3.172 3.172-1.414-1.414L12.586 2H10V0h5z" />
+              <svg :class="isExactActive && 'text-indigo-400'" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
               </svg>
               <span class="text-sm font-medium text-slate-600" :class="isExactActive ? 'text-indigo-500' : 'hover:text-slate-700'">Activity types</span>
             </a>
