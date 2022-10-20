@@ -1,5 +1,7 @@
 <template>
-  <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" @click="click">Refresh Activities</a>
+  <div @click="click">
+    <slot></slot>
+  </div>
 </template>
 
 

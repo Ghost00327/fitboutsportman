@@ -1,8 +1,8 @@
 <template>
   <section>
     <h3 class="text-xl leading-snug text-gray-800 font-bold mb-1">Duration</h3>
-    <div class="text-sm">
-      Activities completed outside of duration time window won't contribute to the user's points.
+    <div class="text-sm leading-snug text-gray-800 mb-1">
+      Activities completed outside of the below time window don't contribute to the points collected by users.
     </div>
 
     <div class="flex py-3">

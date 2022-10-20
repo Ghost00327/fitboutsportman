@@ -1,17 +1,16 @@
 <template>
   <!-- Badges -->
+
   <section>
-    <div class="grid grid-cols-2">
-      <div class="">
-        <h3 class="text-xl leading-snug text-gray-800 font-bold mb-1">Badges</h3>
-        <div class="text-sm">
-          Badges are awarded to users who collected certain number of points. Check out <span class="font-semibold">leaderboard</span> to see per-user awards.
-        </div>
-      </div>
-      <div class="pt-2">
-        <ActionButton @clicked="openNewModal" title="New Badge"/>
-      </div>
-    </div>
+    <h2 class="text-2xl text-gray-800 font-bold">Badges</h2>
+
+    <!-- General -->
+    <section>
+      <h3 class="text-sm leading-snug text-gray-800 mb-1 mt-1">
+        Badges are awards for users who collected certain number of points by completing activities. Check out <span class="font-semibold">leaderboard</span> to see per-user awards.
+      </h3>
+      <ActionButton @clicked="openNewModal" title="New Badge"/>
+    </section>
 
     <BadgeModal
         :badgeModal="badgeModal"
@@ -48,7 +47,7 @@ const props = withDefaults(defineProps<Props>(), {
 const modalOpen = ref(false)
 const badges = ref<Badge[]>([])
 const badgeModal = ref({
-  badge: {description: "", id: 0, min_points: 0, name: ""},
+  badge: {description: "", id: 0, min_points: 0, name: "", emoji: ''},
   header: "Edit Badge"
 })
 const bannerStore = useBannerStore()
@@ -57,14 +56,14 @@ const { addBanner } = bannerStore
 function openEditModal(badge: Badge) {
   badgeModal.value = {
     badge: badge,
-    header: "New Badge"
+    header: "Edit Badge"
   };
   modalOpen.value = true
 }
 
 function openNewModal() {
   badgeModal.value = {
-    badge: {description: "", id: 0, min_points: 0, name: ""},
+    badge: {description: "", id: 0, min_points: 0, name: "", emoji: ''},
     header: "New Badge"
   }
   modalOpen.value = true
@@ -101,6 +100,6 @@ function submit() {
 }
 
 onMounted(async () => {
-  badges.value = (await props.badgeProvider.getAll()).data
+  badges.value = (await props.badgeProvider.getAll()).data.sort((n1,n2) => n1.min_points - n2.min_points);
 })
 </script>

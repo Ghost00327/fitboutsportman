@@ -14,6 +14,7 @@ export interface Badge {
     name: string
     description: string
     min_points: number
+    emoji: string
 }
 
 export interface Team {

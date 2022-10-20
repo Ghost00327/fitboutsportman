@@ -14,6 +14,13 @@
           <label class="block text-sm font-medium mb-1" for="active">Min points <span class="text-red-500">*</span></label>
           <input v-model="badgeModal.badge.min_points" id="active" type="number" class="form-input" />
         </div>
+        <div>
+          <label class="block text-sm font-medium mb-1" for="emoji">Emoji <span class="text-red-500">*</span></label>
+          <button v-on:click="emojiPickerOpen = true">
+            {{ badgeModal.badge.emoji || "🔍" }}
+          </button>
+          <FloatingEmojiPicker id="teamEmojiPicker" :open="emojiPickerOpen" @select="emojiSelected"/>
+        </div>
       </div>
     </div>
 
@@ -32,7 +39,15 @@
 <script setup lang="ts">
 import ModalAction from "@/partials/ModalAction.vue";
 import type {Badge} from "@/model";
+import {ref} from "vue";
+import FloatingEmojiPicker from "@/partials/FloatingEmojiPicker.vue";
 
 const emit = defineEmits(['submit', 'close', 'delete'])
 const props = defineProps<{badgeModal: { badge: Badge, header: string }, modalOpen: boolean}>()
+const emojiPickerOpen = ref(false)
+
+function emojiSelected(emoji: any) {
+  props.badgeModal.badge.emoji = emoji.native
+  emojiPickerOpen.value = false
+}
 </script>

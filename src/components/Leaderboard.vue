@@ -18,7 +18,7 @@
               <div class="font-semibold text-left">Team</div>
             </th>
             <th class="p-2 whitespace-nowrap">
-              <div class="font-semibold text-left">Total activities</div>
+              <div class="font-semibold text-center">Total activities</div>
             </th>
             <th class="p-2 whitespace-nowrap">
               <div class="font-semibold text-center">Total points</div>
