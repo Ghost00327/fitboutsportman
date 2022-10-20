@@ -7,6 +7,12 @@ export class AthleteProvider {
         return (await api.get<User>( "/api/private/profile"))
     }
 
+    async update(user: User): Promise<AxiosResponse<User>> {
+        return (await api.put<User>( `/api/private/users/${user.id}`, {
+            user: user
+        }))
+    }
+
     async getAll(): Promise<AxiosResponse<User[]>> {
         return (await api.get<User[]>( "/api/private/users"))
     }

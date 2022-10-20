@@ -45,7 +45,7 @@
 
     <!-- Content -->
     <div class="relative">
-      <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Good afternoon, {{ fullAthleteName(athlete) }}. 👋</h1>
+      <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Good afternoon, {{ fullAthleteName(user) }}. 👋</h1>
       <p>Here is what’s going on. Keep rocking.</p>
     </div>
 
@@ -58,5 +58,5 @@ import {storeToRefs} from "pinia/dist/pinia";
 import {fullAthleteName} from "@/utils";
 
 const athleteStore = useAthleteStore();
-const {athlete} = storeToRefs(athleteStore)
+const {user} = storeToRefs(athleteStore)
 </script>

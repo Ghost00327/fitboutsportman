@@ -2,7 +2,7 @@
   <div class="flex flex-nowrap overflow-x-scroll no-scrollbar md:block md:overflow-auto px-3 py-6 border-b md:border-b-0 md:border-r border-slate-200 min-w-60 md:space-y-3">
     <!-- Group 1 -->
     <div>
-      <div class="text-xs font-semibold text-slate-400 uppercase mb-3">Profile</div>
+      <div class="text-xs font-semibold text-slate-400 uppercase mb-3">My Account</div>
       <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
         <router-link to="/settings/account" custom v-slot="{ href, navigate, isExactActive }">
           <li class="mr-0.5 md:mr-0 md:mb-0.5">
@@ -14,13 +14,13 @@
             </a>
           </li>
         </router-link>
-        <router-link to="/settings/notifications" custom v-slot="{ href, navigate, isExactActive }">
+        <router-link to="/settings/apps" custom v-slot="{ href, navigate, isExactActive }">
           <li class="mr-0.5 md:mr-0 md:mb-0.5">
             <a class="flex items-center px-2.5 py-2 rounded whitespace-nowrap" :class="isExactActive && 'bg-indigo-50'" :href="href" @click="navigate">
               <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 mr-2" :class="isExactActive && 'text-indigo-400'" viewBox="0 0 16 16">
-                <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8zM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1z" />
+                <path d="M3.414 2L9 7.586V16H7V8.414l-5-5V6H0V1a1 1 0 011-1h5v2H3.414zM15 0a1 1 0 011 1v5h-2V3.414l-3.172 3.172-1.414-1.414L12.586 2H10V0h5z" />
               </svg>
-              <span class="text-sm font-medium text-slate-600" :class="isExactActive ? 'text-indigo-500' : 'hover:text-slate-700'">My Notifications</span>
+              <span class="text-sm font-medium text-slate-600" :class="isExactActive ? 'text-indigo-500' : 'hover:text-slate-700'">Connected Apps</span>
             </a>
           </li>
         </router-link>

@@ -6,9 +6,9 @@
       aria-haspopup="true"
       :aria-expanded="dropdownOpen"
     >
-      <img class="w-8 h-8 rounded-full" :src="athlete.profile_photo_url" width="32" height="32" alt="User" />
+      <img class="w-8 h-8 rounded-full" :src="user.profile_photo_url" width="32" height="32" alt="User" />
       <div class="flex items-center truncate">
-        <span class="truncate ml-2 text-sm font-medium group-hover:text-slate-800">{{ fullAthleteName(athlete) }}</span>
+        <span class="truncate ml-2 text-sm font-medium group-hover:text-slate-800">{{ fullAthleteName(user) }}</span>
         <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400" viewBox="0 0 12 12">
           <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
         </svg>
@@ -24,7 +24,7 @@
     >
       <div v-show="dropdownOpen" class="origin-top-right z-10 absolute top-full min-w-44 bg-white border border-slate-200 py-1.5 rounded shadow-lg overflow-hidden mt-1" :class="align === 'right' ? 'right-0' : 'left-0'">
         <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200">
-          <div class="font-medium text-slate-800">{{ fullAthleteName(athlete) }}</div>
+          <div class="font-medium text-slate-800">{{ fullAthleteName(user) }}</div>
           <div class="text-xs text-slate-500 italic">Administrator</div>
         </div>
         <ul
@@ -60,7 +60,7 @@ import RefreshActivities from "@/components/profile/RefreshActivities.vue";
 const props = defineProps<{align: string}>()
 
 const athleteStore = useAthleteStore();
-const {athlete} = storeToRefs(athleteStore)
+const {user} = storeToRefs(athleteStore)
 
 const dropdownOpen = ref(false)
 const trigger = ref<HTMLButtonElement | null>(null)

@@ -5,22 +5,21 @@ import {AthleteProvider} from "@/providers/athleteProvider";
 
 
 export const useAthleteStore = defineStore('athlete', () => {
-    const athlete = ref<User>({
+    const user = ref<User>({
         city: "", firstname: "", id: 0, lastname: "", profile_photo_url: "", team: {id: 0, emoji: "", name: "", active: false}, email: ""
     })
 
     async function fetch(): Promise<User> {
-        if (athlete.value.id === 0) {
+        if (user.value.id === 0) {
             await new AthleteProvider().get().then(value => {
-                athlete.value = value.data
+                user.value = value.data
             }).catch(value => {
-                console.log(value)
-                athlete.value.id = -1
+                user.value.id = -1
             })
         }
 
-        return athlete.value
+        return user.value
     }
 
-    return { athlete, fetch }
+    return { user, fetch }
 })

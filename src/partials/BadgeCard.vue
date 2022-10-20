@@ -3,14 +3,14 @@
     <!-- Card content -->
     <div class="flex flex-col h-full p-5">
       <div class="grow">
-        <heaader @click.stop="$emit('edit')" class="cursor-pointer flex items-center mb-4">
+        <header @click.stop="$emit('edit')" class="cursor-pointer flex items-center mb-4">
           <div class="w-10 h-10 rounded-full shrink-0 bg-gradient-to-tr from-green-100 to-pink-100 mr-3">
             <div class="grid place-items-center mt-2">
               {{ badge.emoji }}
             </div>
           </div>
           <h3 class="text-lg text-gray-800 font-semibold">{{ badge.name }}</h3>
-        </heaader>
+        </header>
         <div class="text-sm">{{ badge.description || "You are the real Sportacus. Keep going" }}.</div>
       </div>
       <!-- Card footer -->
