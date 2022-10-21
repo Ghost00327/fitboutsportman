@@ -15,7 +15,7 @@
               <h2 class="text-xl leading-snug justify-center font-semibold">{{ fullAthleteName(user) }}</h2>
             </a>
           </div>
-          <div class="flex justify-center items-center"><span>{{ user.team.emoji }} {{ user.team.name}} </span></div>
+          <div v-if="user.team" class="flex justify-center items-center"><span>{{ user.team.emoji }} {{ user.team.name}} </span></div>
         </header>
         <!-- Bio -->
         <div class="text-center mt-2">

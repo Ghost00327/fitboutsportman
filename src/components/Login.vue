@@ -41,7 +41,7 @@ const selectedTeam = ref<null | Team>()
 
 function login(event: Event) {
   if (selectedTeam.value != null) {
-    window.location.href = import.meta.env.VITE_API_URL + "/api/public/login?team=" + selectedTeam.value?.id
+    window.location.href = import.meta.env.VITE_API_URL + "/auth/strava?team=" + selectedTeam.value?.id
   }
 }
 
