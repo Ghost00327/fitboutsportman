@@ -64,3 +64,17 @@ export interface Settings {
     activity_types: ActivityType[]
     badges: Badge[]
 }
+
+export interface Integration {
+    id: number
+    type: string
+    scopes: string[]
+    external_id: string
+}
+
+export interface AvailableIntegration {
+    name: string
+    type: string
+    description: string
+    logo_url: string
+}

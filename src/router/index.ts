@@ -7,7 +7,7 @@ import SettingsView from '../views/SettingsView.vue'
 import ChallengeSettings from '@/components/settings/ChallengeSettings.vue'
 import ActivityTypes from '@/components/settings/ActivityTypes.vue'
 import MyAccount from '@/components/settings/MyAccount.vue'
-import Apps from '@/components/settings/Apps.vue'
+import Apps from '@/components/settings/apps/Apps.vue'
 import {useAthleteStore} from "@/stores/athlete";
 
 const router = createRouter({
