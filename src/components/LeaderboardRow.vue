@@ -46,6 +46,6 @@ const props = defineProps<{data: LeaderboardRow}>()
 
 function timeElapsed() {
   //https://stackoverflow.com/a/1322771
-  return new Date(props.data.elapsed_seconds * 1000).toISOString().substring(14, 19)
+  return new Date(props.data.elapsed_millis).toISOString().substring(14, 19)
 }
 </script>

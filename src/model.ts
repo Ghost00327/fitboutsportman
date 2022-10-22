@@ -2,8 +2,8 @@ export interface LeaderboardRow {
     user: User
     activities_count: Number,
     badges: Badge[],
-    calories_burned: Number,
-    elapsed_seconds: number,
+    calories_expended: Number,
+    elapsed_millis: number,
     points: Number,
     distance: Number,
     points_sum: Number
