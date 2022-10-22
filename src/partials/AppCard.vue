@@ -21,7 +21,7 @@
           </div>
 
           <!-- Right side -->
-          <button v-if="!integration" class="btn-sm border-gray-200 hover:border-gray-300 shadow-sm flex items-center">
+          <button @click.stop="enroll" v-if="!integration" class="btn-sm border-gray-200 hover:border-gray-300 shadow-sm flex items-center">
             <svg class="w-3 h-3 shrink-0 fill-current text-red-500 mr-2" viewBox="0 0 16 16">
               <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
             </svg>
@@ -67,6 +67,17 @@ const props = withDefaults(defineProps<Props>(), {
   integrationProvider: () => new IntegrationProvider(),
 })
 
+function enroll() {
+  if (props.availableIntegration.type == 'google_fit') {
+    window.location.href = import.meta.env.VITE_API_URL + "/auth/google";
+  }
+  if (props.availableIntegration.type == 'strava') {
+    window.location.href = import.meta.env.VITE_API_URL + "/auth/strava";
+  }
+  if (props.availableIntegration.type == 'apple_health') {
+    window.location.href = import.meta.env.VITE_API_URL + "/auth/google";
+  }
+}
 function disconnect() {
   if (props.integration) {
     props.integrationProvider.delete(props.integration)
