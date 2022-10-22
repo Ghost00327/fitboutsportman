@@ -10,7 +10,7 @@
     </td>
     <td class="p-2 whitespace-nowrap">
       <div class="flex items-center">
-        <div class="font-medium text-gray-800">{{ fullTeamName(data.user.team) }}</div>
+        <div v-if="data.user.team" class="font-medium text-gray-800">{{ fullTeamName(data.user.team) }}</div>
       </div>
     </td>
     <td class="p-2 whitespace-nowrap">
