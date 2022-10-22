@@ -12,7 +12,9 @@
         <div class="grid grid-cols-12 gap-6">
           <AppCard v-for="availableIntegration in availableIntegrations" :availableIntegration="availableIntegration" :integration="integrations.find(value => value.type === availableIntegration.type)" @details="integrationModalOpen = true">
             <template v-slot:img>
-              <img class="max-h-10 max-w-sm" src="@/assets/images/google_fit.png">
+              <img v-if="availableIntegration.type === 'strava'" class="max-h-10 max-w-sm" src="@/assets/images/strava.png">
+              <img v-if="availableIntegration.type === 'google_fit'" class="max-h-10 max-w-sm" src="@/assets/images/google_fit.png">
+              <img v-if="availableIntegration.type === 'apple_health'" class="max-h-10 max-w-sm" src="@/assets/images/apple_health.png">
             </template>
           </AppCard>
         </div>
@@ -45,4 +47,6 @@ onMounted(async () => {
   integrations.value = (await props.integrationProvider.get()).data
   availableIntegrations.value = (await props.integrationProvider.getAvailable()).data
 })
+
+
 </script>
