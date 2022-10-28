@@ -14,7 +14,7 @@
       <!-- Card footer -->
       <footer class="mt-4">
         <div class="flex flex-wrap justify-between items-center">
-          <div class="flex space-x-3">
+          <div class="flex">
             <button class="btn-sm border-gray-200 hover:border-gray-300 shadow-sm flex items-center">
               <span>Details</span>
             </button>
@@ -37,6 +37,12 @@
               @close-modal="deleteModalOpen = false"
           />
 
+          <span @click.stop="refresh" v-if="integration" class="cursor-default btn-sm border-gray-200 hover:border-gray-300 shadow-sm">
+            <svg class="w-3 h-3 shrink-0 fill-current text-emerald-500 mr-2" viewBox="0 0 12 12">
+              <path d="M10.28 1.28L3.989 7.575 1.695 5.28A1 1 0 00.28 6.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 1.28z" />
+            </svg>
+            <span>Refresh activities</span>
+          </span>
           <span @click.stop="deleteModalOpen = true" v-if="integration" class="cursor-default btn-sm border-gray-200 hover:border-gray-300 shadow-sm flex items-center">
             <svg class="w-3 h-3 shrink-0 fill-current text-emerald-500 mr-2" viewBox="0 0 12 12">
               <path d="M10.28 1.28L3.989 7.575 1.695 5.28A1 1 0 00.28 6.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 1.28z" />
@@ -54,10 +60,13 @@ import type {AvailableIntegration, Integration} from "@/model";
 import {IntegrationProvider} from "@/providers/integrationProvider";
 import DeleteAppModal from "@/components/settings/apps/DeleteAppModal.vue";
 import {ref} from "vue";
+import {AthleteProvider} from "@/providers/athleteProvider";
+import {useAthleteStore} from "@/stores/athlete";
 
 const deleteModalOpen = ref(false)
 
 interface Props {
+  athleteProvider?: AthleteProvider,
   integrationProvider?: IntegrationProvider,
   availableIntegration: AvailableIntegration,
   integration: Integration | undefined,
@@ -65,6 +74,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   integrationProvider: () => new IntegrationProvider(),
+  athleteProvider: () => new AthleteProvider(),
 })
 
 function enroll() {
@@ -78,6 +88,12 @@ function enroll() {
     window.location.href = import.meta.env.VITE_API_URL + "/auth/google";
   }
 }
+
+async function refresh() {
+  const athlete = await useAthleteStore().fetch();
+  props.athleteProvider.refreshActivities(athlete.id, props.availableIntegration.type).then()
+}
+
 function disconnect() {
   if (props.integration) {
     props.integrationProvider.delete(props.integration)

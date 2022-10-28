@@ -36,11 +36,6 @@
             <router-link class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" to="/settings/account" @click="dropdownOpen = false">Settings</router-link>
           </li>
           <li>
-            <RefreshActivities>
-              <button class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3">Refresh Activities</button>
-            </RefreshActivities>
-          </li>
-          <li>
             <router-link class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" to="/signin" @click="dropdownOpen = false">Sign Out</router-link>
           </li>
         </ul>
@@ -55,7 +50,6 @@ import {onMounted, ref} from "vue";
 import {useAthleteStore} from "@/stores/athlete";
 import {storeToRefs} from "pinia";
 import {fullAthleteName} from "@/utils";
-import RefreshActivities from "@/components/profile/RefreshActivities.vue";
 
 const props = defineProps<{align: string}>()
 

@@ -5,5 +5,5 @@ export function fullAthleteName(athlete: User): string {
 }
 
 export function fullTeamName(team: Team): string {
-    return `${team.emoji} ${team.name}`
+    return `${team.emoji ?? ""} ${team.name}`
 }

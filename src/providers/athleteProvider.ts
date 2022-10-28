@@ -17,7 +17,7 @@ export class AthleteProvider {
         return (await api.get<User[]>( "/api/private/users"))
     }
 
-    async refreshActivities(id: Number): Promise<AxiosResponse<any>> {
-        return (await api.post<User>(`/api/private/users/${id}/refresh-activities`))
+    async refreshActivities(id: Number, integration: string): Promise<AxiosResponse<any>> {
+        return (await api.post<User>(`/api/private/users/${id}/refresh-activities?integration=${integration}`))
     }
 }
