@@ -24,7 +24,6 @@
     >
       <div v-show="dropdownOpen" class="origin-top-right z-10 absolute top-full min-w-44 bg-white border border-blue-200 py-1.5 rounded shadow-lg overflow-hidden mt-1" :class="align === 'right' ? 'right-0' : 'left-0'">
         <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-blue-200">
-          <div class="font-medium text-blue-800">{{ fullAthleteName(user) }}</div>
           <div class="text-xs text-blue-500 italic">Administrator</div>
         </div>
         <ul
@@ -33,10 +32,19 @@
           @focusout="dropdownOpen = false"
         >
           <li>
-            <router-link class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" to="/settings/account" @click="dropdownOpen = false">Settings</router-link>
+            <router-link :to="{ name: 'user', params: { id: user.id.toString() }}" class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3">
+              My profile
+            </router-link>
           </li>
           <li>
-            <router-link class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" to="/signin" @click="dropdownOpen = false">Sign Out</router-link>
+            <router-link to="/settings/account" @click="dropdownOpen = false" class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3">
+              Settings
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/signin" class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" @click="dropdownOpen = false">
+              Sign Out
+            </router-link>
           </li>
         </ul>
       </div> 

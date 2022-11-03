@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "allowJs": true,
+    "lib": ["ES2021", "dom"],
     "paths": {
       "@/*": ["./src/*"]
     }

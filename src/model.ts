@@ -34,7 +34,7 @@ export interface User {
     team: Team
 }
 
-export interface UserSummary {
+export interface TeamUserSummary {
     lastname: string,
     firstname: string,
     profile_photo_url: string,
@@ -43,13 +43,13 @@ export interface UserSummary {
 
 export interface TeamSummary {
     team: Team,
-    users: UserSummary[]
+    users: TeamUserSummary[]
 }
 
 export interface ActivityType {
     id: number,
     active: boolean
-    strava_name: string,
+    code_name: string,
     readable_name: string,
     formula: string,
     points_per_minute: string,
@@ -77,4 +77,33 @@ export interface AvailableIntegration {
     type: string
     description: string
     logo_url: string
+}
+
+export interface UserProfileSummary {
+    user: {
+        id: Number,
+        email: string,
+        location: string,
+        lastname: string,
+        firstname: string,
+        profile_photo_url: string,
+        team: Team,
+        fitpoints: number,
+    }
+    all_activities_count: number,
+    last_activities: {
+        name: string,
+        formula: string,
+        type: string,
+        points: number,
+        end_time_millis: number,
+        distance_meters: number,
+        calories_expended: number,
+        duration_millis: number,
+        source: string,
+        external_link: string
+    }[]
+    activities_by_type: Map<string, number>,
+    activities_by_week: Map<string, number>,
+    integrations_enabled: string[]
 }

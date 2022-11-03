@@ -6,14 +6,15 @@
         <!-- Image + name -->
         <header>
           <div class="flex justify-center mb-2">
-            <a class="relative inline-flex items-start" href="#0">
+            <router-link :to="{ name: 'user', params: { id: user.id.toString() }}" class="relative inline-flex items-start">
               <img class="rounded-full" :src="user.profile_photo_url" width="64" height="64" alt="User 01" />
-            </a>
+            </router-link>
           </div>
           <div class="text-center">
-            <a class="inline-flex text-gray-800 hover:text-gray-900" href="#0">
+
+            <router-link :to="{ name: 'user', params: { id: user.id.toString() }}" class="inline-flex text-gray-800 hover:text-gray-900">
               <h2 class="text-xl leading-snug justify-center font-semibold">{{ fullAthleteName(user) }}</h2>
-            </a>
+            </router-link>
           </div>
           <div v-if="user.team" class="flex justify-center items-center"><span>{{ user.team.emoji }} {{ user.team.name}} </span></div>
         </header>

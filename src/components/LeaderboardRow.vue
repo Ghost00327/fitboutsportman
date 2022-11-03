@@ -2,9 +2,9 @@
   <tr>
     <td class="p-2 whitespace-nowrap">
       <div class="flex items-center">
-        <a class="block" href="#0">
+        <router-link :to="{ name: 'user', params: { id: data.user.id.toString() }}" class="block">
           <img class="rounded-full border-2 border-white box-content" :src="data.user.profile_photo_url" width="28" height="28" alt="User 01" />
-        </a>
+        </router-link>
         <div class="pl-3 font-medium text-gray-800">{{ fullAthleteName(data.user) }}</div>
       </div>
     </td>

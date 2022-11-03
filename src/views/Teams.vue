@@ -20,5 +20,4 @@ import GenericAppView from "@/views/GenericAppView.vue";
 import ActionButton from "@/partials/ActionButton.vue";
 
 const newTeamModalOpen = ref(false)
-const sidebarOpen = ref(true)
 </script>

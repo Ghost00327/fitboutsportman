@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import TeamsView from '../views/Teams.vue'
 import UsersView from '../views/UsersView.vue'
 import SettingsView from '../views/SettingsView.vue'
+import UserView from '../views/UserView.vue'
 import ChallengeSettings from '@/components/settings/ChallengeSettings.vue'
 import ActivityTypes from '@/components/settings/ActivityTypes.vue'
 import MyAccount from '@/components/settings/MyAccount.vue'
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/users',
       name: "users",
       component: UsersView
+    },
+    {
+      path: '/users/:id',
+      name: "user",
+      component: UserView
     },
     {
       path: '/settings',
