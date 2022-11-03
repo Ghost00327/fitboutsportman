@@ -1,27 +1,33 @@
 # fbfrontend
 
-This template should help get you started developing with Vue 3 in Vite.
+### Welcome!
 
-## Recommended IDE Setup
+## Please read the project description [here](https://docs.google.com/document/d/10VTIRfONWTSt6_g2lyqRsWOGg1FzPBYsRbc7NrgUnbQ/edit?usp=sharing) before doing anything!
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+## Deployment
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Each commit to `master` branch triggers netlify build and deploy to https://app-dev.fitbout.io.
+Please make sure that `npm run build` finishes without any warnings before commiting anything.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Current deploy status: [![Netlify Status](https://api.netlify.com/api/v1/badges/de16e651-9a6e-4cdd-b9e9-6105c7f28158/deploy-status)](https://app.netlify.com/sites/sensational-hamster-5e174b/deploys)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
+
+Project uses standard tools like `npm`, `vite`, `typescript` - please make sure you have them installed.
+The app profile `dev-proxy` is configured to fetch data from remote `dev` backend instance. Frontend developers do not need to run the backend service locally.
+
+In order to skip oauth flow locally the `vite.config.ts` is configured to send `X-Impersonate-User` header to the backend. Value of this header determines which user will be impersonated for each request.
+This is a bit hacky approach but it is more than enough to start simple.
+
+
+Allowed / pre-configured user IDs:
+* For strava integration: `1`
+* For Google Fit integration: `2`
+
+Please see [vite.config.ts](vite.config.ts) for further info.
+
 
 ```sh
 npm install
@@ -30,7 +36,7 @@ npm install
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+npm run dev-proxy
 ```
 
 ### Type-Check, Compile and Minify for Production
