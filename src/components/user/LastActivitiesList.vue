@@ -2,7 +2,7 @@
   <div class="col-span-full bg-white shadow-lg rounded-sm border border-slate-200">
     <header class="px-5 py-4 border-b border-slate-100">
       <h2 v-if="profileSummary.last_activities.length === 0"
-          class="font-semibold text-slate-800">{{ profileSummary.user.firstname }} did not upload first activity yet.</h2>
+          class="font-semibold text-slate-800">{{ profileSummary.user.firstname }} is yet to become fitbout's star ✨</h2>
       <h2 v-if="profileSummary.last_activities.length > 0"
           class="font-semibold text-slate-800">Last {{ profileSummary.last_activities.length }} activities</h2>
     </header>
@@ -72,7 +72,7 @@
               <div class="text-center"> {{activity.distance_meters / 1000}}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-              <div class="text-center">{{ moment(activity.duration_millis).format("hh:mm:ss") }}</div>
+              <div class="text-center">{{ moment(activity.duration_millis).format("h[h] mm [m]") }}</div>
             </td>
           </tr>
 

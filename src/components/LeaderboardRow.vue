@@ -22,7 +22,7 @@
       <div class="text-center">{{ data.points_sum }}</div>
     </td>
     <td class="p-2 whitespace-nowrap">
-      <div class="text-center">{{ timeElapsed() }}</div>
+      <div class="text-center">{{ format(data.elapsed_millis) }}</div>
     </td>
     <td class="p-2 whitespace-nowrap text-center">
       <div v-for="badge in data.badges" class="inline-flex items-center text-xs font-medium text-gray-700 bg-gray-200 rounded-full text-center py-0.5">
@@ -41,11 +41,16 @@
 <script setup lang="ts">
 import type {LeaderboardRow} from "@/model"
 import {fullAthleteName, fullTeamName} from "@/utils";
+import moment from "moment";
 
 const props = defineProps<{data: LeaderboardRow}>()
 
-function timeElapsed() {
-  //https://stackoverflow.com/a/1322771
-  return new Date(props.data.elapsed_millis).toISOString().substring(14, 19)
+function format(duration: number) {
+  //one week
+  if (duration > 604800000) {
+    return moment(duration).format("d[d] h[h]")
+  }
+
+  return moment(duration).format("h[h] mm[m]")
 }
 </script>

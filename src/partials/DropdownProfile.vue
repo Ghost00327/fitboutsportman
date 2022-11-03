@@ -42,7 +42,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/signin" class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" @click="dropdownOpen = false">
+            <router-link :to="{ name: 'logout'}" class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3" @click="dropdownOpen = false">
               Sign Out
             </router-link>
           </li>

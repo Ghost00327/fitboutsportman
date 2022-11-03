@@ -63,6 +63,14 @@ const router = createRouter({
       name: 'login',
       component: LoginView,
     },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: {},
+      beforeEnter(to, from, next) {
+        window.location.href = import.meta.env.VITE_API_URL + "/api/private/profile/logout"
+      }
+    },
   ]
 })
 
