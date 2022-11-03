@@ -47,7 +47,7 @@ const chartData = ref({
   datasets: [
     {
       data: props.data,
-      backgroundColor: COLORS,
+      backgroundColor: [COLORS.EMERALD],
     }
   ]
 })

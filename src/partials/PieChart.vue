@@ -16,7 +16,7 @@
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 import { ref} from "vue";
-import {COLORS} from "@/partials/utils.js"
+import {COLORS_VALUES} from "@/partials/utils.js"
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
 
@@ -47,7 +47,7 @@ const chartData = ref({
   datasets: [
     {
       data: props.data,
-      backgroundColor: COLORS,
+      backgroundColor: COLORS_VALUES,
     }
   ]
 })
