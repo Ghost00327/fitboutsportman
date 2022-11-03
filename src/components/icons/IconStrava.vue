@@ -1,3 +1,3 @@
 <template>
-  <img class="min-h-fit" src="@/assets/images/strava.png">
+  <img class="w-3/12" src="@/assets/images/strava.png">
 </template>

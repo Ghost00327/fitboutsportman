@@ -15,16 +15,13 @@
           <thead class="text-xs uppercase text-slate-400 bg-slate-50 rounded-sm">
           <tr>
             <th class="p-2 whitespace-nowrap">
-              <div class="font-semibold text-center">Name</div>
+              <div class="font-semibold text-center">Source & Name</div>
             </th>
             <th class="p-2 whitespace-nowrap">
-              <div class="font-semibold text-center">Fitpoints</div>
+              <div class="font-semibold text-center">Fitpoints & Formula</div>
             </th>
             <th class="p-2 whitespace-nowrap">
               <div class="font-semibold text-center">Type</div>
-            </th>
-            <th class="p-2 whitespace-nowrap">
-              <div class="font-semibold text-center">Finished at</div>
             </th>
             <th class="p-2 whitespace-nowrap">
               <div class="font-semibold text-center">Calories expended</div>
@@ -34,6 +31,9 @@
             </th>
             <th class="p-2 whitespace-nowrap">
               <div class="font-semibold text-center">Duration</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-center">Finished on</div>
             </th>
           </tr>
           </thead>
@@ -45,7 +45,7 @@
               <div class="flex items-center">
                 <IconStrava v-if="activity.source === 'strava'"/>
                 <IconGoogleFitSolo v-if="activity.source === 'google_fit'"/>
-                <div>
+                <div class="pl-3">
                   <div class="text-slate-800 uppercase">{{ activity.name }}</div>
                   <a v-if="activity.external_link" :href="activity.external_link" target="_blank">
                     <div class="flex">
@@ -57,13 +57,12 @@
               </div>
             </td>
             <td class="p-2 whitespace-nowrap">
-              <p class="text-center text-emerald-500">{{ activity.points }} based on {{ activity.formula }}</p>
+              <div class="text-center flex-nowrap">
+                <div class="text-emerald-500">{{ activity.points }} / {{ activity.formula }}</div>
+              </div>
             </td>
             <td class="p-2 whitespace-nowrap">
               <div class="text-center">{{ activity.type }}</div>
-            </td>
-            <td class="p-2 whitespace-nowrap">
-              <div class="text-center">{{ moment(activity.end_time_millis).format("DD/MM/YYYY hh:mm:ss") }}</div>
             </td>
             <td class="p-2 whitespace-nowrap">
               <div class="text-center">{{ activity.calories_expended }}</div>
@@ -73,6 +72,9 @@
             </td>
             <td class="p-2 whitespace-nowrap">
               <div class="text-center">{{ moment(activity.duration_millis).format("h[h] mm [m]") }}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+              <div class="text-center">{{ moment(activity.end_time_millis).format("DD/MM/YYYY hh:mm:ss") }}</div>
             </td>
           </tr>
 

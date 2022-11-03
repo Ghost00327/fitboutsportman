@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col col-span-full bg-white shadow-lg rounded-sm border border-slate-200">
     <div class="px-5 py-6">
-
       <div class="md:flex md:justify-between md:items-center">
         <!-- Left side -->
         <div class="flex items-center mb-4 md:mb-0">
@@ -17,16 +16,8 @@
           </div>
         </div>
         <!-- Right side -->
-        <div>
+        <div class="flex flex-wrap">
           <div class="text-3xl font-bold text-emerald-500">Fitpoints: {{ profileSummary.user.fitpoints }}</div>
-          <ul class="shrink-0 flex flex-wrap justify-end">
-            <li v-if="profileSummary.integrations_enabled.includes('google_fit')">
-              <IconGoogleFitSolo/>
-            </li>
-            <li v-if="profileSummary.integrations_enabled.includes('strava')" >
-              <IconStrava/>
-            </li>
-          </ul>
         </div>
       </div>
 

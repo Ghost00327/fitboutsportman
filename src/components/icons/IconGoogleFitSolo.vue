@@ -1,3 +1,3 @@
 <template>
-  <img class="min-h-fit" src="@/assets/images/google_fit.png">
+  <img class="w-3/12" src="@/assets/images/google_fit.png">
 </template>
