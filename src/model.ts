@@ -107,3 +107,30 @@ export interface UserProfileSummary {
     activities_by_week: Map<string, number>,
     integrations_enabled: string[]
 }
+
+export interface TeamSummaryView {
+    users: {
+        id: Number,
+        location: string,
+        lastname: string,
+        firstname: string,
+        profile_photo_url: string,
+        team: Team,
+        fitpoints: number,
+    }[]
+    members_count: number,
+    last_activities: {
+        name: string,
+        formula: string,
+        type: string,
+        points: number,
+        end_time_millis: number,
+        distance_meters: number,
+        calories_expended: number,
+        duration_millis: number,
+        source: string,
+        external_link: string
+    }[]
+    points_by_week: Map<string, number>,
+    points_by_activity_type: Map<string, number>,
+}
