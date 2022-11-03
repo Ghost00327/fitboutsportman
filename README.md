@@ -16,7 +16,7 @@ Current deploy status: [![Netlify Status](https://api.netlify.com/api/v1/badges/
 ## Commiting
 
 Please commit your changes directly to `master` branch. You are free to use feature branches but remember that they won't be deployed anywhere.
-You must not need commit shitty commits like `fix`, `test` or anything like that. Use meaningful commit messages.
+You must need commit shitty commits like `fix`, `test` or anything like that. Use meaningful commit messages.
 
 
 ## REST API
