@@ -12,7 +12,7 @@
         <div class="grid grid-cols-12 gap-6">
           <AppCard v-for="availableIntegration in availableIntegrations" :availableIntegration="availableIntegration" :integration="integrations.find(value => value.type === availableIntegration.type)" @details="integrationModalOpen = true">
             <template v-slot:img>
-              <img v-if="availableIntegration.type === 'strava'" class="max-h-10 max-w-sm" src="@/assets/images/strava.png">
+              <img v-if="availableIntegration.type === 'strava'" src="@/assets/images/strava.png" class="h-6 w-auto">
               <img v-if="availableIntegration.type === 'google_fit'" class="max-h-10 max-w-sm" src="@/assets/images/google_fit.png">
               <img v-if="availableIntegration.type === 'apple_health'" class="max-h-10 max-w-sm" src="@/assets/images/apple_health.png">
             </template>

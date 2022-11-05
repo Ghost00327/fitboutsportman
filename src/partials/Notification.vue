@@ -13,14 +13,22 @@
   <div aria-live="assertive" class="flex w-full flex-col items-center space-y-4 sm:items-end">
     <!-- Notification panel, dynamically insert this into the live region when it needs to be displayed -->
     <transition enter-active-class="transform ease-out duration-800 transition" enter-from-class="tranblue-y-2 opacity-0 sm:tranblue-y-0 sm:tranblue-x-2" enter-to-class="tranblue-y-0 opacity-100 sm:tranblue-x-0" leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
-      <div v-if="open" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+      <div v-if="open" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+      :class="{
+        'border  border-green-400' : banner.type === 'success',
+        'border  border-blue-400' : banner.type === 'info',
+        'border  border-red-400' : banner.type === 'error',
+        'border  border-orange-400' : banner.type === 'warning'
+      
+      }"
+      >
         <div class="p-4">
           <div class="flex items-start">
             <div class="flex-shrink-0">
               <CheckCircleIcon v-if="banner.type === 'success'" class="h-6 w-6 text-green-400" aria-hidden="true" />
-              <InformationCircleIcon v-if="banner.type === 'info'" class="h-6 w-6 text-green-400" aria-hidden="true" />
-              <XCircleIcon v-if="banner.type === 'error'" class="h-6 w-6 text-green-400" aria-hidden="true" />
-              <MinusCircleIcon v-if="banner.type === 'warning'" class="h-6 w-6 text-green-400" aria-hidden="true" />
+              <InformationCircleIcon v-if="banner.type === 'info'" class="h-6 w-6 text-blue-400" aria-hidden="true" />
+              <XCircleIcon v-if="banner.type === 'error'" class="h-6 w-6 text-red-400" aria-hidden="true" />
+              <MinusCircleIcon v-if="banner.type === 'warning'" class="h-6 w-6 text-orange-400" aria-hidden="true" />
             </div>
             <div class="ml-3 w-0 flex-1 pt-0.5">
               <p v-if="banner.title" class="text-sm font-medium text-gray-900">{{ banner.title }}</p>
