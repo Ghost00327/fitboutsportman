@@ -103,7 +103,7 @@ async function refresh() {
   props.athleteProvider.refreshActivities(athlete.id, props.availableIntegration.type).then(
    () => {
     refreshing.value = false
-    useBannerStore().addBanner({type: 'success', title: "Refresh activities done", msg:  'We have scheduled refresh of ' + props.availableIntegration.name + ' activities.' + ' Please check check your profile in a few seconds.' })
+    useBannerStore().addBanner({type: 'success', title: "Refresh activities done", msg: `We have scheduled refresh of ${props.availableIntegration.name} activities. Please check check your profile in a few seconds.` })
    }
   )
 }
