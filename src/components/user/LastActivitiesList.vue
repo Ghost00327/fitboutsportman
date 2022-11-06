@@ -46,7 +46,13 @@
                 <IconStrava v-if="activity.source === 'strava'"/>
                 <IconGoogleFitSolo v-if="activity.source === 'google_fit'"/>
                 <div class="pl-3">
-                  <div class="text-slate-800 uppercase">{{ activity.name }}</div>
+                  <div class="group cursor-pointer relative">
+                    <div class="text-slate-800 uppercase truncate w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 2xl:w-48 relative">{{ activity.name }}</div>
+                    <div v-if="isTooltip(activity.name)" class="opacity-0 group-hover:opacity-90 w-auto bg-gray-700 text-white text-center text-xs rounded-lg py-2 absolute z-10 bottom-full -left-1/2 ml-14 px-3">
+                      {{ activity.name }}
+                      <svg class="absolute text-black h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                    </div>
+                  </div>
                   <a v-if="activity.external_link" :href="activity.external_link" target="_blank">
                     <div class="flex">
                       <div class="text-xs text-slate-400">Original activity</div>
@@ -77,7 +83,6 @@
               <div class="text-center">{{ moment(activity.end_time_millis).format("DD/MM/YYYY hh:mm:ss") }}</div>
             </td>
           </tr>
-
           </tbody>
         </table>
 
@@ -94,4 +99,5 @@ import moment from "moment";
 import IconGoogleFitSolo from "@/components/icons/IconGoogleFitSolo.vue";
 
 const props = defineProps<{profileSummary: UserProfileSummary}>()
+const isTooltip = (name:string) => name.length > 15
 </script>
