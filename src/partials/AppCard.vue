@@ -66,7 +66,7 @@
 import type {AvailableIntegration, Integration} from "@/model";
 import {IntegrationProvider} from "@/providers/integrationProvider";
 import DeleteAppModal from "@/components/settings/apps/DeleteAppModal.vue";
-import {ref, computed} from "vue";
+import {ref} from "vue";
 import {AthleteProvider} from "@/providers/athleteProvider";
 import {useAthleteStore} from "@/stores/athlete";
 import {useBannerStore} from "@/stores/banner";

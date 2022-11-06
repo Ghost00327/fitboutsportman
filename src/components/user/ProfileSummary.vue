@@ -16,8 +16,12 @@
           </div>
         </div>
         <!-- Right side -->
-        <div class="flex flex-wrap">
+        <div class="flex flex-col gap-2">
           <div class="text-3xl font-bold text-emerald-500">Fitpoints: {{ profileSummary.user.fitpoints }}</div>
+          <div class="w-52 flex items-center">
+            <IconGoogleFitSolo v-if="isEnabled('google_fit')"/>
+            <IconStrava v-if="isEnabled('strava')"/>
+          </div>
         </div>
       </div>
 
@@ -32,4 +36,5 @@ import IconGoogleFitSolo from "@/components/icons/IconGoogleFitSolo.vue";
 import IconStrava from "@/components/icons/IconStrava.vue";
 
 const props = defineProps<{profileSummary: UserProfileSummary}>()
+const isEnabled = (integration:string) => { return props.profileSummary.integrations_enabled.includes(integration)}
 </script>
