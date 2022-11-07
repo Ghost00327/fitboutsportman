@@ -26,14 +26,18 @@
     </td>
     <td class="p-2 whitespace-nowrap text-center">
       <div class="flex gap-2 justify-center">
-        <div v-for="(badge, i) in data.badges" class="relative p-2 text-xs font-medium text-white bg-gradient-to-tr from-sky-400 to-indigo-500 rounded-full text-center py-0.5" :key="i">
-        <span class="px-2">{{ badge.name }}</span>
-         <div class="absolute -right-2 bottom-3 w-6 h-6 flex rounded-full shrink-0 bg-gradient-to-tr from-rose-400 to-red-300">
-          <div class="m-auto place-items-center">
-            {{ badge.emoji }}
+        <div v-for="(badge, i) in data.badges" class="group hover:cursor-pointer relative p-2 text-xs font-medium text-white bg-gradient-to-tr from-sky-400 to-indigo-500 rounded-full text-center py-0.5" :key="i">
+          <span class="px-2">{{ badge.name }}</span>
+          <div class="absolute -right-2 bottom-3 w-6 h-6 flex rounded-full shrink-0 bg-gradient-to-tr from-rose-400 to-red-300">
+            <div class="m-auto place-items-center">
+              {{ badge.emoji }}
+            </div>
+          </div>
+          <div class="opacity-0 group-hover:opacity-90 w-auto bg-gray-700 text-white text-center text-xs rounded-lg py-2 absolute z-10 bottom-[120%] -left-1/2 px-3">
+            {{ badge.description }}
+            <svg class="absolute text-black h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
           </div>
         </div>
-      </div>
       </div>
        
     </td>
