@@ -81,6 +81,10 @@ input[type="search"]::-webkit-search-results-decoration {
     @apply leading-5 py-2 px-3 border-blue-200 hover:border-blue-300 focus:border-indigo-300 shadow-sm;
 }
 
+.form-input-valid {
+    @apply border border-red-600 hover:border-red-600 focus:border-red-600;
+}
+
 .form-input,
 .form-textarea {
     @apply placeholder-blue-400;
