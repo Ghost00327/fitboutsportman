@@ -25,14 +25,17 @@
       <div class="text-center">{{ format(data.elapsed_millis) }}</div>
     </td>
     <td class="p-2 whitespace-nowrap text-center">
-      <div v-for="badge in data.badges" class="inline-flex items-center text-xs font-medium text-gray-700 bg-gray-200 rounded-full text-center py-0.5">
-        <div class="w-10 h-10 rounded-full shrink-0 bg-gradient-to-tr from-green-100 to-pink-100 mr-3">
-          <div class="grid place-items-center mt-2">
+      <div class="flex gap-2 justify-center">
+        <div v-for="(badge, i) in data.badges" class="relative p-2 text-xs font-medium text-white bg-gradient-to-tr from-sky-400 to-indigo-500 rounded-full text-center py-0.5" :key="i">
+        <span class="px-2">{{ badge.name }}</span>
+         <div class="absolute -right-2 bottom-3 w-6 h-6 flex rounded-full shrink-0 bg-gradient-to-tr from-rose-400 to-red-300">
+          <div class="m-auto place-items-center">
             {{ badge.emoji }}
           </div>
         </div>
-        <span class="px-2">{{ badge.name }}</span>
       </div>
+      </div>
+       
     </td>
   </tr>
 </template>
