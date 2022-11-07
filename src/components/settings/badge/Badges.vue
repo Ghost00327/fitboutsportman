@@ -2,14 +2,16 @@
   <!-- Badges -->
 
   <section>
-    <h2 class="text-2xl text-gray-800 font-bold">Badges</h2>
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl text-gray-800 font-bold">Badges</h2>
+      <ActionButton @clicked="openNewModal" title="New Badge"/>
+    </div>
 
     <!-- General -->
     <section>
       <h3 class="text-sm leading-snug text-gray-800 mb-1 mt-1">
         Badges are awards for users who collected certain number of points by completing activities. Check out <span class="font-semibold">leaderboard</span> to see per-user awards.
       </h3>
-      <ActionButton @clicked="openNewModal" title="New Badge"/>
     </section>
 
     <BadgeModal
