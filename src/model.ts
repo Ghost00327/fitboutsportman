@@ -67,16 +67,18 @@ export interface Settings {
 
 export interface Integration {
     id: number
-    type: string
     scopes: string[]
-    external_id: string
+    external_id: string,
+    integration_candidate_id: number
 }
 
-export interface AvailableIntegration {
-    name: string
-    type: string
+export interface IntegrationCandidate {
+    id: number
+    readable_name: string
+    code_name: string
+    image_url: string
     description: string
-    logo_url: string
+    active: boolean
 }
 
 export interface UserProfileSummary {
@@ -105,7 +107,7 @@ export interface UserProfileSummary {
     }[]
     activities_by_type: Map<string, number>,
     activities_by_week: Map<string, number>,
-    integrations_enabled: string[]
+    integrations_enabled: IntegrationCandidate[]
 }
 
 export interface TeamSummaryView {

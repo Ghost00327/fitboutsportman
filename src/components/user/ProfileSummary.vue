@@ -18,9 +18,8 @@
         <!-- Right side -->
         <div class="flex flex-col gap-2">
           <div class="text-3xl font-bold text-emerald-500">Fitpoints: {{ profileSummary.user.fitpoints }}</div>
-          <div class="w-52 flex items-center">
-            <IconGoogleFitSolo v-if="isEnabled('google_fit')"/>
-            <IconStrava v-if="isEnabled('strava')"/>
+          <div class="flex items-center">
+            <img v-for="integration in profileSummary.integrations_enabled" :src="integration.image_url" class="h-6 w-auto" :alt="`Logo of ${integration.readable_name}`">
           </div>
         </div>
       </div>
@@ -30,11 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import {fullAthleteName} from "@/utils";
 import type {UserProfileSummary} from "@/model";
-import IconGoogleFitSolo from "@/components/icons/IconGoogleFitSolo.vue";
-import IconStrava from "@/components/icons/IconStrava.vue";
-
 const props = defineProps<{profileSummary: UserProfileSummary}>()
-const isEnabled = (integration:string) => { return props.profileSummary.integrations_enabled.includes(integration)}
 </script>

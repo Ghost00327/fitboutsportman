@@ -10,12 +10,11 @@
       <!-- Connected Apps cards -->
       <section class="pb-6 border-b border-blue-200">
         <div class="grid grid-cols-12 gap-6">
-          <AppCard v-for="availableIntegration in availableIntegrations" :availableIntegration="availableIntegration" :integration="integrations.find(value => value.type === availableIntegration.type)" @details="integrationModalOpen = true">
-            <template v-slot:img>
-              <img v-if="availableIntegration.type === 'strava'" src="@/assets/images/strava.png" class="h-6 w-auto">
-              <img v-if="availableIntegration.type === 'google_fit'" class="max-h-10 max-w-sm" src="@/assets/images/google_fit.png">
-              <img v-if="availableIntegration.type === 'apple_health'" class="max-h-10 max-w-sm" src="@/assets/images/apple_health.png">
-            </template>
+          <AppCard
+              v-for="integrationCandidate in integrationCandidates"
+              :integrationCandidate="integrationCandidate"
+              :integration="integrations.find(value => value.integration_candidate_id === integrationCandidate.id)"
+              @details="integrationModalOpen = true">
           </AppCard>
         </div>
       </section>
@@ -29,11 +28,11 @@ import AppCard from "@/partials/AppCard.vue";
 import {onMounted, ref} from "vue";
 import IntegrationInfoModal from "@/partials/IntegrationInfoModal.vue";
 import {IntegrationProvider} from "@/providers/integrationProvider";
-import type {AvailableIntegration, Integration} from "@/model";
+import type {IntegrationCandidate, Integration} from "@/model";
 const integrationModalOpen = ref(false)
 
 const integrations = ref([] as Integration[])
-const availableIntegrations = ref([] as AvailableIntegration[])
+const integrationCandidates = ref([] as IntegrationCandidate[])
 
 interface Props {
   integrationProvider?: IntegrationProvider,
@@ -45,8 +44,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 onMounted(async () => {
   integrations.value = (await props.integrationProvider.get()).data
-  availableIntegrations.value = (await props.integrationProvider.getAvailable()).data
+  integrationCandidates.value = (await props.integrationProvider.getIntegrationCandidates()).data
 })
-
-
 </script>

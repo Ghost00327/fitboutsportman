@@ -6,9 +6,9 @@
         <header class="flex justify-between mb-4">
           <div class="flex items-center">
             <div>
-              <slot name="img"/>
+              <img :src="integrationCandidate.image_url" class="h-6 w-auto" :alt="`Logo of ${integrationCandidate.readable_name}`">
             </div>
-            <h3 class="text-lg text-gray-800 font-semibold">{{ availableIntegration.name }}</h3>
+            <h3 class="text-lg text-gray-800 font-semibold">{{ integrationCandidate.readable_name }}</h3>
           </div>
           <button @click.stop="refresh" v-if="integration" class="cursor-pointer btn-sm border-gray-200 hover:border-gray-300 shadow-sm ">
             <svg v-if="refreshing" class="inline mr-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-emerald-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@
             <span>Refresh activities</span>
           </button>
         </header>
-        <div class="text-sm">{{ availableIntegration.description }}</div>
+        <div class="text-sm">{{ integrationCandidate.description }}</div>
       </div>
       <!-- Card footer -->
       <footer class="mt-4">
@@ -42,13 +42,12 @@
 
           <DeleteAppModal
               v-if="integration"
-              :name="availableIntegration.name"
+              :name="integrationCandidate.readable_name"
               :modal-open="deleteModalOpen"
               :integration="integration"
               @disconnect="disconnect"
               @close-modal="deleteModalOpen = false"
           />
-
         
           <span @click.stop="deleteModalOpen = true" v-if="integration" class="cursor-default btn-sm border-gray-200 hover:border-gray-300 shadow-sm flex items-center">
             <svg class="w-3 h-3 shrink-0 fill-current text-emerald-500 mr-2" viewBox="0 0 12 12">
@@ -63,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import type {AvailableIntegration, Integration} from "@/model";
+import type {IntegrationCandidate, Integration} from "@/model";
 import {IntegrationProvider} from "@/providers/integrationProvider";
 import DeleteAppModal from "@/components/settings/apps/DeleteAppModal.vue";
 import {ref} from "vue";
@@ -77,7 +76,7 @@ const refreshing = ref(false)
 interface Props {
   athleteProvider?: AthleteProvider,
   integrationProvider?: IntegrationProvider,
-  availableIntegration: AvailableIntegration,
+  integrationCandidate: IntegrationCandidate,
   integration: Integration | undefined,
 }
 
@@ -87,23 +86,19 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 function enroll() {
-  if (props.availableIntegration.type == 'google_fit') {
-    window.location.href = import.meta.env.VITE_API_URL + "/auth/google";
-  }
-  if (props.availableIntegration.type == 'strava') {
-    window.location.href = import.meta.env.VITE_API_URL + "/auth/strava";
-  }
-  if (props.availableIntegration.type == 'apple_health') {
-    window.location.href = import.meta.env.VITE_API_URL + "/auth/google";
-  }
+  // google_fit integration must hit "/auth/google" endpoint hence hack here
+  // we cannot change it to /auth/google_fit as it is provided by 3rd party lib
+  const integration_name = props.integrationCandidate.code_name.replace("_fit", "")
+  window.location.href = `${import.meta.env.VITE_API_URL}/auth/${integration_name}`;
 }
+
 async function refresh() {
   refreshing.value = true
   const athlete = await useAthleteStore().fetch();
-  props.athleteProvider.refreshActivities(athlete.id, props.availableIntegration.type).then(
+  props.athleteProvider.refreshActivities(athlete.id, props.integration!!.id).then(
    () => {
     refreshing.value = false
-    useBannerStore().addBanner({type: 'success', title: "Refresh activities done", msg: `We have scheduled refresh of ${props.availableIntegration.name} activities. Please check check your profile in a few seconds.` })
+    useBannerStore().addBanner({type: 'success', title: "Refresh activities done", msg: `We have scheduled refresh of ${props.integrationCandidate.readable_name} activities. Please check check your profile in a few seconds.` })
    }
   )
 }
