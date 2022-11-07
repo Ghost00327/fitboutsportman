@@ -52,6 +52,13 @@ module.exports = {
       zIndex: {
         60: '60',
       },
+      screens: {
+        '3xl': '1600px',
+        '4xl': '1700px',
+        '5xl': '1800px',
+        '5.5xl': '1850px',
+        '6xl': '1900px',
+      }
     },
   },
   plugins: [

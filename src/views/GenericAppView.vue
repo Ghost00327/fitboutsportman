@@ -9,9 +9,8 @@
       <Header :sidebarOpen="sidebarOpen" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
       <main>
-
-        <div class="p-2 px-4 sm:px-6 lg:px-8 py-2 w-full max-w-9xl absolute">
-            <Banner2 v-for="banner in banners" :banner="banner"/>
+        <div class="p-2 px-4 sm:px-6 lg:px-8 py-2 right-0 5xl:right-12 5.5xl:right-16 6xl:right-20 w-full fixed z-20">
+            <Banner2 v-for="(banner, i) in banners" :banner="banner" :key="i"/>
         </div>
 
         <div class="px-4 sm:px-6 lg:px-8 py-10 w-full max-w-9xl mx-auto">
