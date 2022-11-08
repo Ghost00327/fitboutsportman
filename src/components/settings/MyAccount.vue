@@ -1,13 +1,12 @@
 <template>
   <div class="p-6 space-y-6 grow">
-    <h2 class="text-2xl text-gray-800 font-bold mb-5">My Account</h2>
     <!-- Picture -->
     <section>
-      <div class="flex items-center">
+      <div class="flex justify-between">
+        <h2 class="text-2xl text-gray-800 font-bold mb-5">My Account</h2>
         <div class="mr-4">
           <img class="w-20 h-20 rounded-full" :src="user.profile_photo_url" width="80" height="80" alt="User upload" />
         </div>
-        <button class="btn-sm bg-blue-500 hover:bg-blue-600 text-white">Change</button>
       </div>
     </section>
     <section>
